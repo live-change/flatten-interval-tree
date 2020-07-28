@@ -6,6 +6,13 @@ Object.defineProperty(exports, '__esModule', { value: true });
  * Created by Alex Bol on 4/1/2017.
  */
 
+function min(a,b) {
+    return a < b ? a : b
+}
+function max(a,b) {
+    return a > b ? a : b
+}
+
 /**
  * Interval is a pair of numbers or a pair of any comparable objects on which may be defined predicates
  * *equal*, *less* and method *max(p1, p1)* that returns maximum in a pair.
@@ -92,8 +99,8 @@ const Interval = class Interval {
      */
     merge(other_interval) {
         return new Interval(
-            this.low === undefined ? other_interval.low : Math.min(this.low, other_interval.low),
-            this.high === undefined ? other_interval.high : Math.max(this.high, other_interval.high)
+            this.low === undefined ? other_interval.low : min(this.low, other_interval.low),
+            this.high === undefined ? other_interval.high : max(this.high, other_interval.high)
         );
     }
 
@@ -141,6 +148,13 @@ const RB_TREE_COLOR_BLACK = 1;
  * Created by Alex Bol on 4/1/2017.
  */
 
+function min$1(a,b) {
+    return a < b ? a : b
+}
+function max$1(a,b) {
+    return a > b ? a : b
+}
+
 class Node {
     constructor(key = undefined, value = undefined,
                 left = null, right = null, parent = null, color = RB_TREE_COLOR_BLACK) {
@@ -153,9 +167,7 @@ class Node {
 
         /* If not, this should by an array of two numbers */
         if (key && key instanceof Array && key.length == 2) {
-            if (!Number.isNaN(key[0]) && !Number.isNaN(key[1])) {
-                this.item.key = new Interval(Math.min(key[0], key[1]), Math.max(key[0], key[1]));
-            }
+            this.item.key = new Interval(min$1(key[0], key[1]), max$1(key[0], key[1]));
         }
         this.max = this.item.key ? this.item.key.max : undefined;
     }

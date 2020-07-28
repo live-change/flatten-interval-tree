@@ -2,6 +2,13 @@
  * Created by Alex Bol on 4/1/2017.
  */
 
+function min(a,b) {
+    return a < b ? a : b
+}
+function max(a,b) {
+    return a > b ? a : b
+}
+
 /**
  * Interval is a pair of numbers or a pair of any comparable objects on which may be defined predicates
  * *equal*, *less* and method *max(p1, p1)* that returns maximum in a pair.
@@ -88,8 +95,8 @@ const Interval = class Interval {
      */
     merge(other_interval) {
         return new Interval(
-            this.low === undefined ? other_interval.low : Math.min(this.low, other_interval.low),
-            this.high === undefined ? other_interval.high : Math.max(this.high, other_interval.high)
+            this.low === undefined ? other_interval.low : min(this.low, other_interval.low),
+            this.high === undefined ? other_interval.high : max(this.high, other_interval.high)
         );
     }
 

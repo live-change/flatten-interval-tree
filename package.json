@@ -1,5 +1,5 @@
 {
-  "name": "@flatten-js/interval-tree",
+  "name": "@live-change/interval-tree",
   "version": "1.0.11",
   "description": "Interval search tree",
   "author": "“Alex <“alexbol99@gmail.com”> (“https://github.com/alexbol99/flatten-interval-tree)",

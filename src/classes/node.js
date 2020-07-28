@@ -7,6 +7,13 @@
 import Interval from './interval.js';
 import {RB_TREE_COLOR_RED, RB_TREE_COLOR_BLACK} from '../utils/constants.js';
 
+function min(a,b) {
+    return a < b ? a : b
+}
+function max(a,b) {
+    return a > b ? a : b
+}
+
 class Node {
     constructor(key = undefined, value = undefined,
                 left = null, right = null, parent = null, color = RB_TREE_COLOR_BLACK) {
@@ -19,9 +26,7 @@ class Node {
 
         /* If not, this should by an array of two numbers */
         if (key && key instanceof Array && key.length == 2) {
-            if (!Number.isNaN(key[0]) && !Number.isNaN(key[1])) {
-                this.item.key = new Interval(Math.min(key[0], key[1]), Math.max(key[0], key[1]));
-            }
+            this.item.key = new Interval(min(key[0], key[1]), max(key[0], key[1]));
         }
         this.max = this.item.key ? this.item.key.max : undefined;
     }

@@ -1,6 +1,6 @@
 {
   "name": "@live-change/interval-tree",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Interval search tree",
   "author": "“Alex <“alexbol99@gmail.com”> (“https://github.com/alexbol99/flatten-interval-tree)",
   "license": "MIT",
